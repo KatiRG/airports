@@ -9,7 +9,7 @@ var chart = d3.select(".data")
         title: i18next.t("datatableTitle", {ns: "area"})
       },
       filterData: function(data) {
-        return data.worldpop;
+        return data.fuelsales;
       },
       x: {
 
@@ -43,7 +43,7 @@ var chart = d3.select(".data")
           }
           return keys;
         },
-        getClass: function(d) {console.log(d)
+        getClass: function(d) {
           return this.z.getId.apply(this, arguments);
         },
         getText: function(d) {
@@ -56,7 +56,7 @@ var chart = d3.select(".data")
 i18n.load(["src/i18n"], function() {
   d3.queue()
     // .defer(d3.json, "data/worldpop.json")
-    .defer(d3.json, "data/myworldpop.json")
+    .defer(d3.json, "data/canadaFuelSales.json")
     .await(function(error, data) {
       areaChart(chart, settings, data);
     });

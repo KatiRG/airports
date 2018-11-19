@@ -6,9 +6,9 @@
       "y_label": "Population (en Milliards)",
       "datatableTitle": "Tableau de données : Accroissement de la population mondiale historique et estimée par région (en Milliards)",
       "datatableTitlePercent": "Tableau de données : Accroissement de la population mondiale historique et estimée par région (en pourcentage de la planète)",
-      "asia": "Gas",
-      "africa": "Diesel",
-      "europe": "LPG"
+      "gas": "Gas",
+      "diesel": "Diesel",
+      "LPG": "LPG"
     }
   }
 }
