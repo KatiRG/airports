@@ -36,7 +36,7 @@ var chart = d3.select(".data")
         },
         getKeys: function(object) {
           var sett = this,
-            keys = Object.keys(object[0]);
+          keys = Object.keys(object[0]);
           keys.splice(keys.indexOf(id),1);
           keys.splice(keys.indexOf(sett.y.totalProperty),1);
           return keys;
@@ -53,7 +53,8 @@ var chart = d3.select(".data")
 
 i18n.load(["src/i18n"], function() {
   d3.queue()
-    .defer(d3.json, "data/worldpop.json")
+    // .defer(d3.json, "data/worldpop.json")
+    .defer(d3.json, "data/myworldpop.json")
     .await(function(error, data) {
       areaChart(chart, settings, data);
     });
