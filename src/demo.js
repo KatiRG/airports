@@ -25,7 +25,7 @@ var chart = d3.select(".data")
       y: {
         label: i18next.t("y_label", {ns: "area"}),
         getValue: function(d, key) {
-          return d[key] * 1.0 / 1000;
+          return d[key] * 1.0/ 1000;
         }
       },
 
@@ -38,10 +38,12 @@ var chart = d3.select(".data")
           var sett = this,
           keys = Object.keys(object[0]);
           keys.splice(keys.indexOf(id),1);
-          keys.splice(keys.indexOf(sett.y.totalProperty),1);
+          if (keys.indexOf(sett.y.totalProperty) !== -1) {
+            keys.splice(keys.indexOf(sett.y.totalProperty),1);
+          }
           return keys;
         },
-        getClass: function() {
+        getClass: function(d) {console.log(d)
           return this.z.getId.apply(this, arguments);
         },
         getText: function(d) {
