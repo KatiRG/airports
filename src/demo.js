@@ -25,7 +25,10 @@ var chart = d3.select(".data")
       y: {
         label: i18next.t("y_label", {ns: "area"}),
         getValue: function(d, key) {
-          return d[key] * 1.0/ 1000;
+          if (typeof d[key] === 'string' || d[key] instanceof String) {
+            return 0;
+          }
+          else return d[key] * 1.0/ 1000;
         }
       },
 
@@ -56,7 +59,7 @@ var chart = d3.select(".data")
 i18n.load(["src/i18n"], function() {
   d3.queue()
     // .defer(d3.json, "data/worldpop.json")
-    .defer(d3.json, "data/CANADA_FuelSales.json")
+    .defer(d3.json, "data/BC_FuelSales.json")
     .await(function(error, data) {
       areaChart(chart, settings, data);
     });
